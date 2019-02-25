@@ -1,0 +1,6 @@
+#use std
+(Uses Preparse's std library.)
+#define var Hello, world!
+(defines a variable called var with the string value "Hello, world!"
+#echo var
+(prints var's value to the screen)
