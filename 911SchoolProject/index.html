@@ -1,0 +1,47 @@
+<h1 id="h0" style="text-align:center; color:blue; background-color:pink;">9/11 Memorial Site</h1>
+<img id="img0" src="911flag.jpg" style="margin-left:auto; margin-right:auto; display:block;"></img>
+<h1 id="h1" style="text-align:center; background-color:pink;">Information</h1>
+
+<p id="p0" style="text-align:center;"> 
+On 9/11/2001, four planes were hijacked. Two of these planes hit the World Trade Center, also known as the twin
+Towers, in New York. Many people lost their lifes on that day due too us being uninformed on how to handle
+situations like that. This site is here to help us remember all of the people who gave their lives to help others.
+</p>
+<h1 id="h2" style="text-align:center; background-color:pink;">A letter to the heroes of 9/11</h1>
+<p id="p1" style="font-family:courier;">
+Dear Heroes, <br /><br />
+Thank you for risking your lives to help the lives of so many other people. Your help allowed many people who could have
+died to live because you did your job. In that time where so many people needed help, you were there to help them, 
+every step of the way. And, despite all of the chaos, you remained calm and did your best to keep the survivors
+alive. There is not enough thanks in the world to let you know how appreciated you are.<br /><br /> 
+
+And, finally, thank you to the reader of this site. People like you who want to read to make the world a better place is
+what makes the world go round. I hope that people will continue to learn about this to make the world a better place.
+<br /> <br />Sincerely, Everyone.
+</p>
+
+<script>
+var h0 = document.getElementById("h0");
+var p0 = document.getElementById("p0");
+var h0Step = 0;
+
+function changeH0Color(){
+	if(h0Step == 0){
+		h0.style.color = "red";
+		p0.style.backgroundColor = "pink";
+		h0Step++;
+	}
+	else if(h0Step == 1){
+		h0.style.color = "white";
+		p0.style.backgroundColor = "white";
+		h0Step++;
+	}
+	else{
+		h0.style.color = "blue";
+		p0.style.backgroundColor = "lightblue";
+		h0Step = 0;
+	}
+}
+setInterval(changeH0Color, 1000);
+
+</script>
