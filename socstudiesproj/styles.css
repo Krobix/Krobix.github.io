@@ -1,0 +1,47 @@
+@font-face {
+	font-family: "biorhyme";
+	src: url("./fonts/BioRhyme-Regular.otf");
+}
+
+@font-face {
+	font-family: "biorhyme bold";
+	src: url("./fonts/BioRhyme-ExtraBold.otf");
+}
+
+#tabcontent {
+	font-size: 18;
+	font-family: biorhyme;
+	text-align: center;
+}
+
+#tabtitle {
+	font-size: 35;
+	font-family: biorhyme bold;
+	text-align: center;
+}
+
+#canvas {
+	position: absolute;
+	z-index: 0;
+}
+
+#pageShown {
+	position: absolute;
+	z-index: -1;
+	top: 100;
+}
+
+.button-text {
+	font-size: 25px;
+	font-family: biorhyme;
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+}
+
+img.centered {
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+  	width: 50%;
+}
