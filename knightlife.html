@@ -1,0 +1,57 @@
+<style>
+
+h1 {
+	text-align: center;
+	background-color: black;
+}
+
+.sbeve {
+	text-align: center;
+	background-color: black;
+}
+
+</style>
+<h1 id="knh0">KNIGHT LIFE</h1>
+<div class="sbeve" id="div0">
+	<h2 id="knh1">Knights Live By A Code</h2> 
+	<p id="par0">Both kinghts and samurai of the middle ages had to live by a code. This code was based on loyalty,
+	and the idea that your employer was your master. You were not to betray them and you promised your life to them.</p>
+	<h2>Ways of life</h2>
+	<p>The knights were arguably the most important people on a manor. Without them, there was no military, so vassals
+	would get no manor in the first place. This was why becoming a knight was such a challenge. They had no free time; they 
+	trained constantly with no breaks. One common training practice was jousting. They jousted on horses, effectively training
+	themselves and creating entertainment as well.</p>
+	<h2>Battle Style</h2>
+	<p>Most of the time, knights battled on horses. They often wore heavy metal armour, that, while being effective, also
+	was very costly. This was due to them being made for each specific knight. If a knight wore a piece of armour that
+	did not fit, it could effect the outcome of the battle negatively.</p>
+	<h2>Why knights were so important</h2>
+	<p>Knights were very important. This was partly due to the fact that manors were constantly at war wigth each other.
+	This included two supported by the same lord. Because of the frequent war, if you had no knights, then your land was 
+	likely to be easily taken. This coukd lean to one manor becoming too powerful, which would become dangerous over time.</p>
+	<h2>Sources</h2>
+	<p><a href="http://www.lordsandladies.org/middle-ages-knights.htm">Source 1</a><br/>
+	<a href="https://www.ducksters.com/history/middle_ages/history_of_knights.php">Source 2</a><br/>
+	Source 3 is the DBQ packet.</p>
+	
+</div>
+
+<script>
+var colors = ["blue", "red", "yellow", "white", "orange", "purple", "pink", "magenta", "gray", "brown"];
+var head0 = document.getElementById("knh0");
+var div0 = document.getElementById("div0");
+
+function changeElementColorRand(e) {
+	var chosen = Math.random();
+	chosen = Math.floor(chosen * colors.length);
+	chosen = colors[chosen];
+	e.style.color = chosen;
+}
+
+window.onerror = function(msg, url, line){
+	alert("Error: " + msg);
+}
+
+setInterval(function(){ changeElementColorRand(head0) }, 500);
+setInterval(function(){changeElementColorRand(div0)}, 350)
+</script>
