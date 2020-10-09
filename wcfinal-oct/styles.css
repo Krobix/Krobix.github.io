@@ -1,0 +1,50 @@
+@font-face {
+    font-family: satisfy;
+    src: url(./font/Satisfy-Regular.ttf);
+}
+
+@font-face {
+    font-family: alegreya;
+    src: url(./font/Alegreya-Regular.ttf);
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+    font-family: satisfy;
+    font-size: 50px;
+}
+
+p {
+    font-family: alegreya;
+    font-size: 22px;
+}
+
+.tentry {
+    display: none;
+}
+
+#img-frontpage {
+    width: 20%;
+}
+
+#background-p, #quotep {
+    background-color: rgb(247, 137, 247);
+    border: 2px solid red;
+}
+
+#timeline {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+a {
+    color: blue;
+    text-decoration: underline;
+}
