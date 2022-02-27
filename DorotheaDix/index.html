@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<style>
+    @font-face {
+        font-family: montserrat;
+        src: url(font/Montserrat-VariableFont_wght.ttf);
+    }
+
+    * {
+        font-family: 'montserrat';
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 100px;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 50px;
+    }
+
+    .biosection {
+        text-align: left;
+        display: none;
+        font-size: 24px;
+    }
+
+    /* CSS */
+    .button-9 {
+        appearance: button;
+        backface-visibility: hidden;
+        background-color: #405cf5;
+        border-radius: 6px;
+        border-width: 0;
+        box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+        box-sizing: border-box;
+        color: #fff;
+        cursor: pointer;
+        font-family: montserrat;
+        font-size: 100%;
+        height: 64px;
+        line-height: 1.15;
+        margin: 12px 0 0;
+        outline: none;
+        overflow: hidden;
+        padding: 0 25px;
+        position: relative;
+        text-align: center;
+        text-transform: none;
+        transform: translateZ(0);
+        transition: all .2s,box-shadow .08s ease-in;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+        width: 14.2%;
+    }
+
+    .button-9:disabled {
+        cursor: default;
+    }
+
+    .button-9:focus {
+        box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+    }
+
+    #pageselect {
+        height: 20%;
+    }
+
+    #display-img {
+        float: right;
+        height: 50vh;
+        width: auto;
+        padding-left: 0%;
+    }
+
+    #img-capt{
+        text-align: right;
+        clear: right;
+        float: right;
+    }
+
+    #bodyd {
+        width: 50%;
+        height: 80%;
+        float: left;
+    }
+
+    #timeline {
+        width: 100%;
+        height: 20vh;
+    }
+</style>
+
+<div id="header">
+    <h1>Dorothea Dix</h1>
+
+    <div id="pageselect"></div>
+</div>
+
+<img id="timeline" src="img/dordix_timeline_base.jpg">
+
+<br/><br/>
+<div id="bodyd">
+        
+
+    <div id="bio-intro" class="biosection">Dorothea Dix was an extremely significant reformer in the 1800’s. Although in her early years she would work as a teacher, she would eventually move on from this profession and begin her career as a reformer, specifically of prisons and asylums, where she would advocate for better living conditions for criminals as well as the mentally ill. Although her reforms were rejected and disliked by most government officials of her time, she never gave up on the core ideas of her cause, and her ideas would come to be embraced by many down the line.</div>
+
+    <div id="bio-earlylife" class="biosection">
+        - Born in hampden, Maine, 1802
+        <br/><br/>
+        - Had a very difficult childhood, moved to live with grandmother at a young age
+        <br/><br/>
+        - Father insisted she be educated
+        <br/><br/>
+        - Would go on to become a teacher and found several schools
+    </div>
+
+    <div id="bio-endteach" class="biosection">
+        - Over the years, Dix's health worsened
+        <br/><br/>
+        - Would end up closing her last school in 1836 at the age of 34
+        <br/><br/>
+        - Would after this travel to Europe and gain an interest in activism
+        <br/><br/>
+        - After her return she would begin touring prisons across the country
+    </div>
+
+    <div id="bio-prisontour" class="biosection">
+        - She went on a tour of many prisons across the States
+        <br/><br/>
+        - Found that many prisoners were neglected and abused
+        <br/><br/>
+        - The mentally ill often lived in the same cell as violent criminals
+        <br/><br/>
+        - Dix compiled reports a presented them to the government and public, leading to funding of Worcester mental hospital
+    </div>
+
+    <div id="bio-civilwar" class="biosection">
+        - American civil war would begin in 1861
+        <br/><br/>
+        - Dix would assist Union as a Nurse
+        <br/><br/>
+        - She would be appointed to the position of Superintendant of women nurses
+        <br/><br/>
+        - She was feared and not well-liked by the volunteers that served under her, and would be removed from her position several months later 
+    </div>
+
+    <div id="bio-laterlife" class="biosection">
+        - After the civil war her activism would continue in Europe
+        <br/><br/>
+        - Died in 1887 at the age of 85, in a hsopital that had been dedicated to her
+    </div>
+
+    <div id="citations" class="biosection">
+        Prison cell image By Thesab - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=3186464 <br/>
+        Other sources:<br/>
+        https://www.womenshistory.org/education-resources/biographies/dorothea-dix <br/>
+        https://www.history.com/topics/womens-history/dorothea-lynde-dix <br/>
+    </div>
+</div>
+
+<img id="display-img" src="img/portrait0.jpeg">
+<p id="img-capt">Portrait of Dorothea Dix</p>
+
+<script>
+    var bioSections = ["bio-intro", "bio-earlylife", "bio-endteach", "bio-prisontour", "bio-civilwar", "bio-laterlife", "citations"];
+    var bioTitles = ["Introduction", "Early Life", "End of teaching career and beginning of political career", "Prison Tours and Political Lobbying", "Civil War", "Later life", "Sources used"];
+    var timelineImages = ["img/dordix_timeline_base.jpg", "img/dordix_timeline_early.jpg", "img/dordix_timeline_endteach.jpg", "img/dordix_timeline_activism.jpg", "img/dordix_timeline_later.jpg", "img/dordix_timeline_later.jpg", "img/dordix_timeline_base.jpg"];
+    var displayImages = [];
+    var currentImage = 0;
+
+    function addDisplayImg(src, desc){
+        var tmp = {"src": src, "desc":desc};
+        displayImages.push(tmp);
+    }
+
+    function displayImg(n){
+        var img = document.getElementById("display-img");
+        var d = document.getElementById("img-capt");
+        img.style.opacity = 0;
+        img.src = displayImages[n].src;
+        d.innerHTML = displayImages[n].desc;
+        img.style.opacity = 1;
+    }
+
+    function imageCycle(){
+        if(currentImage>=displayImages.length){
+            currentImage = 0;
+        }
+        displayImg(currentImage);
+        currentImage++;
+    }
+
+    function showBioSection(sect){
+        for(var i=0; i<bioSections.length; i++){
+            var t = document.getElementById(bioSections[i]);
+            t.style.display = "none";
+        }
+        var e = document.getElementById(sect);
+        e.style.display = "initial";
+        var tl = document.getElementById("timeline");
+        tl.src = timelineImages[bioSections.indexOf(sect)];
+    }
+
+    function addButtons(){
+        var d = document.getElementById("pageselect");
+        for(var i=0; i<bioSections.length; i++){
+            var t = document.createElement("button");
+            console.log(bioSections[i]);
+            t.className = "button-9";
+            t.id = bioSections[i] + "-b";
+            t.onclick = function(evt){
+                console.log(evt.target.getAttribute("id").slice(0,-2));
+                showBioSection(evt.target.getAttribute("id").slice(0, -2));
+            }
+            t.innerHTML = bioTitles[i];
+            d.appendChild(t);
+        }
+    }
+
+    showBioSection("bio-intro");
+    addButtons();
+    
+    addDisplayImg("img/portrait0.jpeg", "Portrait of Dorothea Dix");
+    addDisplayImg("img/cell1830.jpg", "A modern-day photograph of a cell in a Pennsylvania prison in the 1830's");
+    addDisplayImg("img/memorial0.jpg", "Memorial soliciting a state hospital for the mentally ill, inspired by Dorothea Dix");
+    addDisplayImg("img/hospitalnc.jpg", "Hospital named in honor of Dorothea Dix");
+    addDisplayImg("img/hospitalsign0.jpg", "Sign found outside Dorothea Dix hospital");
+    
+    setInterval(imageCycle, 10000);
+</script>
