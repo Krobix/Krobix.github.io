@@ -1,0 +1,80 @@
+@font-face {
+    font-family: alice;
+    src: url(font/alice.ttf);
+}
+
+* {
+    font-family: alice;
+}
+
+h1 {
+    text-align: center;
+    font-size: 64px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 40px;
+}
+
+#cabinet {
+    display: none;
+}
+
+#sectlinks {
+    text-align: center;
+    font-size: 24px;
+}
+
+.sectbody {
+    font-size: 24px;
+    width: 50%;
+    word-wrap: break-word;
+    clear: both;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.imgr {
+    float: right;
+    clear: right;
+    width: 30%;
+    height: auto;
+}
+
+.imgl {
+    float: left;
+    clear: left;
+    width: 30%;
+    height: auto;
+}
+
+.sectr {
+    text-align: left;
+    width: 50%;
+    float: right;
+    overflow: hidden;
+}
+
+.sectl {
+    text-align: left;
+    width: 50%;
+    float: left;
+    overflow: hidden;
+}
+
+.super {
+    width:100%;
+    clear: both;
+}
+
+#hymap {
+    clear: both;
+}
+
+/*
+#canv {
+    height: 75%;
+    width: 100%;
+}
+*/
