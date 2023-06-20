@@ -1,0 +1,167 @@
+<canvas id="canv" height="500" width="900"></canvas>
+<img src="https://krobix.github.io/resources/img/D0331B57-A662-4A2F-B24C-47CA24B8AE9A.png" id="birdSpr" alt="b">
+<script>
+var canvas = document.getElementById("canv");
+var ctx = canvas.getContext("2d");
+canvas.style.backgroundColor = "black";
+var birdX = 100;
+var birdY = 250;
+var birdR = 20;
+var fallSpeed = 4.5;
+var jumpSpeed = 4;
+var isJumping = false;
+var jumpUpdater = 0;
+//length of jumps measured in updates
+var jumpLength = 50;
+//Distance between pipes measured in "updates"
+var pipeDistance = 100;
+var pipeSplit = 30;
+var pipeUpdater = 0;
+var pipeArr = [];
+var pipeSpeed = 3;
+var birdTop = 0;
+var birdRight = 0;
+var birdLeft = 0;
+var birdBottom = 0;
+var birdSprite = document.getElementById("birdSpr");
+var isDead = false;
+var debugMode = false;
+
+function range(num1, num2){
+	var arr = [];
+	while(num1 < num2){
+		arr.push(num1);
+		num1 = num1 + 0.01;
+	}
+	return arr;
+}
+
+function drawBirdCollision(){
+	ctx.beginPath();
+	ctx.rect(birdLeft, birdTop, birdR*2, birdR*2);
+	if(debugMode){
+		ctx.strokeStyle = "white";
+		ctx.stroke();
+	}
+	else{
+		ctx.strokeStyle = "black";
+	}
+	ctx.closePath();
+	birdTop = birdY - birdR;
+	birdBottom = birdY + birdR;
+	birdLeft = birdX - birdR;
+	birdRight = birdX + birdR;
+}
+
+function drawBird(){
+  ctx.beginPath();
+  ctx.drawImage(birdSprite, birdLeft, birdTop, birdR*2, birdR*2);
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+  ctx.closePath();
+}
+
+class pipe{
+	constructor(){
+		this.spaceStart = Math.random() * 1000;
+		this.spaceStart = Math.floor(this.spaceStart);
+		this.x = 900;
+		this.left = canvas.width - this.x;
+		this.bottom = 500 + this.spaceStart;
+		if(this.spaceStart >= 500){
+			this.spaceStart = birdY;
+		}
+	}
+	update(){
+		ctx.beginPath();
+		ctx.rect(this.x, 0, 50, canvas.height);
+		ctx.fillStyle = "green";
+		ctx.fill();
+		this.bottom = 500 - this.spaceStart;
+		this.top = 0;
+		ctx.clearRect(this.x, 500, 50, -this.spaceStart);
+		ctx.closePath();
+		this.x = this.x - pipeSpeed;
+	}
+	drawCollision(){
+		ctx.beginPath();
+		ctx.rect(this.x, this.top, 50, this.bottom);
+		if(debugMode){
+			ctx.strokeStyle = "blue";
+			ctx.stroke();
+		}
+		ctx.closePath();
+		 
+	}
+}
+
+function flapWings(evt){
+  isJumping = true;
+  jumpUpdater = 0;
+}
+
+function updateAllPipes(){
+	if(pipeUpdater == pipeDistance){
+		var tempPipe = new pipe;
+		pipeArr.push(tempPipe);
+		pipeUpdater = 0;
+	}
+	pipeArr.forEach(function(x){
+		var tempPipe = x;
+		tempPipe.update();
+		tempPipe.drawCollision();
+		var tempCheck = ((range(tempPipe.x, tempPipe.x + 50).includes(birdRight))||(range(tempPipe.x, tempPipe.x + 50).includes(birdLeft)));
+		if(((tempPipe.x == birdRight)&&(birdTop < tempPipe.bottom))||((tempPipe.bottom == birdTop)&&(tempCheck))){
+			isDead = true;
+			console.log("dead");
+		}
+		if(x.x < 0){
+			pipeArr.splice(pipeArr.indexOf(x), 1);
+			console.log("Pipe deleted");
+		}
+	});
+}
+
+
+
+
+
+function update(){
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  updateAllPipes();
+  if(jumpUpdater == jumpLength){
+	isJumping = false;
+  }
+  if(isJumping){
+	birdY = birdY - jumpSpeed;
+	jumpUpdater = jumpUpdater + 1;
+  }
+  else{
+	birdY = birdY + fallSpeed;
+  }
+  drawBird();
+  drawBirdCollision();
+  jumpUpdater = jumpUpdater + 1;
+  pipeUpdater = pipeUpdater + 1;
+  if(isDead){
+	  ctx.beginPath();
+	  ctx.fillStyle = "red";
+	  ctx.arc(birdX, birdY, Math.PI*2, Math.PI*2, birdR*2);
+	  ctx.fill();
+	  ctx.closePath();
+	  jumpUpdater = jumpLength;
+  }
+  if(debugMode){
+	  ctx.beginPath();
+	  ctx.fillStyle = "white";
+	  ctx.fillText([birdTop, birdBottom, birdLeft, birdRight], birdX, 250);
+	  ctx.closePath();
+  }
+}
+
+
+canvas.ontouchstart = flapWings;
+canvas.onkeypress = flapWings;
+setInterval(update, 10);
+
+</script>
